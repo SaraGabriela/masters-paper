@@ -10625,12 +10625,22 @@ h1, h2, h3, h4, h5,
   box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
 }
 
-.text-wrap, .login-wrap {
-  width: 50%;
+.login-wrap {
+  width: 40%;
 }
 
 @media (max-width: 991.98px) {
-  .text-wrap, .login-wrap {
+  .login-wrap {
+    width: 100%;
+  }
+}
+
+.text-wrap {
+  width: 60%;
+}
+
+@media (max-width: 991.98px) {
+  .text-wrap {
     width: 100%;
   }
 }
@@ -10671,8 +10681,9 @@ h1, h2, h3, h4, h5,
   font-weight: 700;
 }
 
-.form-group a {
+.form-group p {
   color: gray;
+  text-align: justify;
 }
 
 .form-control {
@@ -10895,5 +10906,113 @@ h1, h2, h3, h4, h5,
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 20px;
+}
+
+.glass {
+  /* Accordion styles */
+}
+
+.glass input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.glass .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.glass .row .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.glass .row .col:last-child {
+  margin-left: 1em;
+}
+
+.glass .tabs {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.glass .tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+
+.glass .tab ul {
+  list-style-type: none;
+}
+
+.glass .tab-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em;
+  background: #4e54c8;
+  font-weight: bold;
+  cursor: pointer;
+  /* Icon */
+}
+
+.glass .tab-label:hover {
+  background: #363cad;
+}
+
+.glass .tab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: left;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+}
+
+.glass .tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #fff;
+  background: transparent;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+}
+
+.glass .tab-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #4e54c8;
+  cursor: pointer;
+}
+
+.glass .tab-close:hover {
+  background: #363cad;
+}
+
+.glass input:checked + .tab-label {
+  background: #363cad;
+}
+
+.glass input:checked + .tab-label::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.glass input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
 }
 /*# sourceMappingURL=style.css.map */

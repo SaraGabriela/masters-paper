@@ -5,6 +5,8 @@
 $font-primary: 'Lato',Arial, sans-serif;
 $primary: #4e54c8;
 
+//*{outline: 1px solid rgba(255,0,0,0.8);}
+
 @mixin gradient-background(){
 	background: #4e54c8;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
@@ -80,12 +82,20 @@ h1, h2, h3, h4, h5,
 	-moz-box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
 	box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
 }
-.text-wrap,.login-wrap{
-	width: 50%;
+.login-wrap{
+	width: 40%;
 	@include media-breakpoint-down(md){
 		width: 100%;
 	}
 }
+.text-wrap{
+	width: 60%;
+
+	@include media-breakpoint-down(md){
+		width: 100%;
+	}
+}
+
 
 .text-wrap{
 	@include gradient-background();
@@ -116,8 +126,9 @@ h1, h2, h3, h4, h5,
 		color: $black;
 		font-weight: 700;
 	}
-	a{
+	p{
 		color: lighten($black,50%);
+		text-align: justify;
 	}
 }
 
@@ -300,4 +311,90 @@ h1, h2, h3, h4, h5,
 .glass {
 	@include glass-background();
 	padding: 20px;
+}
+
+$midnight: #2c3e50;
+$clouds: #ecf0f1;
+.glass {
+	input {
+		position: absolute;
+		opacity: 0;
+		z-index: -1;
+	  }
+	  // Layout
+	  .row {
+		display:flex;
+		.col {
+		  flex:1;
+		  &:last-child {
+			margin-left: 1em;
+		  }
+		}
+	  }
+	  /* Accordion styles */
+	  .tabs {
+		border-radius: 8px;
+		overflow: hidden;
+		//box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
+	  }
+	  .tab {
+		width: 100%;
+		color: white;
+		overflow: hidden;
+		ul{
+			list-style-type: none;
+		}
+
+		&-label {
+		  display: flex;
+		  justify-content: space-between;
+		  padding: 1em;
+		  background: $primary;
+		  font-weight: bold;
+		  cursor: pointer;
+		  /* Icon */
+		  &:hover {
+			background: darken($primary, 10%);
+		  }
+		  &::after {
+			content: "\276F";
+			width: 1em;
+			height: 1em;
+			text-align: left;
+			transition: all .35s;
+		  }
+		}
+		&-content {
+		  max-height: 0;
+		  padding: 0 1em;
+		  color: #fff;
+		  background: transparent;
+		  transition: all .35s;
+		}
+		&-close {
+		  display: flex;
+		  justify-content: flex-end;
+		  padding: 1em;
+		  font-size: 0.75em;
+		  background: $primary;
+		  cursor: pointer;
+		  &:hover {
+			background: darken($primary, 10%);
+		  }
+		}
+	  }
+	  
+	  // :checked
+	  input:checked {
+		+ .tab-label {
+		  background: darken($primary, 10%);
+		  &::after {
+			transform: rotate(90deg);
+		  }
+		}
+		~ .tab-content {
+		  max-height: 100vh;
+		  padding: 1em;
+		}
+	  }
 }
