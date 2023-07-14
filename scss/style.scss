@@ -363,6 +363,12 @@ $clouds: #ecf0f1;
 			text-align: left;
 			transition: all .35s;
 		  }
+		  @include media-breakpoint-down(md){
+			overflow: visible;
+			&::after {
+				display: none;
+			  }
+		}
 		}
 		&-content {
 		  max-height: 0;
@@ -382,11 +388,16 @@ $clouds: #ecf0f1;
 			background: darken($primary, 10%);
 		  }
 		}
+
+		@include media-breakpoint-down(md){
+			font-size: 14px;
+			
+		}
 	  }
 	  
 	  // :checked
 	  input:checked {
-		+ .tab-label {
+		 .tab-label {
 		  background: darken($primary, 10%);
 		  &::after {
 			transform: rotate(90deg);

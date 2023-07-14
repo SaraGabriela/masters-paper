@@ -10976,6 +10976,15 @@ h1, h2, h3, h4, h5,
   transition: all .35s;
 }
 
+@media (max-width: 991.98px) {
+  .glass .tab-label {
+    overflow: visible;
+  }
+  .glass .tab-label::after {
+    display: none;
+  }
+}
+
 .glass .tab-content {
   max-height: 0;
   padding: 0 1em;
@@ -11002,11 +11011,17 @@ h1, h2, h3, h4, h5,
   background: #363cad;
 }
 
-.glass input:checked + .tab-label {
+@media (max-width: 991.98px) {
+  .glass .tab {
+    font-size: 14px;
+  }
+}
+
+.glass input:checked .tab-label {
   background: #363cad;
 }
 
-.glass input:checked + .tab-label::after {
+.glass input:checked .tab-label::after {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
